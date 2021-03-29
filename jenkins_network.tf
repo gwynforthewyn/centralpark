@@ -1,21 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.20"
-    }
-  }
-}
-
-provider "aws" {
-  profile = "default"
-  region  = "us-east-2"
-}
-
-resource "aws_vpc" "jenkins_vpc" {
-  cidr_block = "192.168.8.0/22"
-}
-
 resource "aws_subnet" "jenkins_subnet" {
   vpc_id = aws_vpc.jenkins_vpc.id
   cidr_block = cidrsubnet(aws_vpc.jenkins_vpc.cidr_block, 6, 0)
