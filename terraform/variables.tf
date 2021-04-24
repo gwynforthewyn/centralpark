@@ -2,7 +2,7 @@
 variable "jenkins_ssh_allowed_ingress" {
   type = list(string)
 
-  default     = ["67.176.80.56/32"]
+  default     = ["73.217.92.18/32"]
   description = "IP addresses allowed to access network resources."
 }
 
@@ -11,6 +11,14 @@ variable "region" {
 
   default     = "us-west-2"
   description = "Region to host VPC within."
+}
+
+
+variable "vpc_cidr_block" {
+  type = string
+
+  default = "192.168.8.0/22"
+  description = "cidr block for your jenkins vpc"
 }
 
 variable "public_key" {
@@ -23,7 +31,7 @@ variable "public_key" {
 variable "jenkins_web_ui_allowed_ingress" {
   type = list(string)
 
-  default     = ["67.176.80.56/32"]
+  default     = ["73.217.92.18  /32"]
   description = "Hosts Jenkins is allow egress to."
 }
 
